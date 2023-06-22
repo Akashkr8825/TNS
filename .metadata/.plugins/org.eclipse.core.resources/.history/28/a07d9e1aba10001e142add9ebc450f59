@@ -1,0 +1,5 @@
+package com.tns.customer.service;
+
+public class CustomerService {
+
+}

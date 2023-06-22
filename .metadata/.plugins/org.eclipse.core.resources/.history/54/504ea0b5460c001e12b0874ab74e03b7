@@ -1,0 +1,30 @@
+package com.tns.jdbcTask;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Add {
+	public static void main(String[] args) {
+		CallableStatement cstmt=null;
+        try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con=DriverManager.getConnection("jdbc:mysql://10.0.2.134:3306/?user=akashk/employee.emp","akashk","Akash@SQL_DB");
+			cstmt= con.prepareCall("{call create_author(?, ?)}");
+			
+			cstmt.setString(1, "sandy");
+			cstmt.setString(2, "EEE");
+			
+			cstmt.execute();
+			cstmt.close();
+			con.close();
+			
+			System.out.println("record added successfully!!!!");
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

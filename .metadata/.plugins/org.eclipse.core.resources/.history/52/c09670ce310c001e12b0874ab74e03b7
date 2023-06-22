@@ -1,0 +1,7 @@
+package com.tns.task;
+
+public abstract class Vehicle {
+    abstract void numberOfWheels();
+    abstract void color();
+    
+}

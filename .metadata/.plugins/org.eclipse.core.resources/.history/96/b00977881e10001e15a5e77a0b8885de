@@ -1,0 +1,5 @@
+package com.tns.customer.dao;
+
+public class UserRepository {
+
+}

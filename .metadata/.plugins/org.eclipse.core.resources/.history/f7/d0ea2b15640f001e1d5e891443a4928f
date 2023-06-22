@@ -1,0 +1,34 @@
+package task3;
+
+import java.util.Scanner;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+public class AccountDaoImp implements AccountDao{
+
+	@Override
+	public boolean depositAmount(int acc) {
+		boolean flag=false;
+		EntityManagerFactory factory=Persistence.createEntityManagerFactory("dev");
+		EntityManager manager=factory.createEntityManager();
+		Bank b=manager.find(Bank.class, acc);
+		manager.getTransaction().begin();
+		if(b!=null) {
+			Scanner sc=new Scanner(System.in);
+			System.out.println("enter deposite amount");
+			int da=sc.nextInt();
+			b.setBalance(b.getBalance()+da);
+			flag=true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean withdrawlAmount(int acc) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

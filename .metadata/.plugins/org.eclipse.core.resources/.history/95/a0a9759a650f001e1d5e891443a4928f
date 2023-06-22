@@ -1,0 +1,49 @@
+package task3;
+
+import java.util.Scanner;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+public class UpdateBalance {
+   public static void main(String[] args) {
+	   AccountDao dao=new AccountDaoImp();
+	   Scanner sc=new Scanner(System.in);
+	   int choice=sc.nextInt();
+	   switch (choice) {
+	case 1:{
+		System.out.println("enter account id");
+		   int ac=sc.nextInt();
+		   
+		   boolean f=dao.depositAmount(ac);
+		   System.out.println(f);
+		   System.out.println("Deposite amount sucessfully");
+		break;
+	}
+	case 2:{
+		System.out.println("enter account id");
+		   int ac1=sc.nextInt();
+		   
+		   boolean fa=dao.withdrawlAmount(ac1);
+		   System.out.println(fa);
+	}
+	default:
+		break;
+	}
+	   
+	   
+	   
+//	EntityManagerFactory factory=Persistence.createEntityManagerFactory("dev");
+//	EntityManager manager=factory.createEntityManager();
+//	EntityTransaction transaction=manager.getTransaction();
+//	Bank b=new Bank();
+//	
+//	manager.merge(b);
+//	transaction.begin();
+//	transaction.commit();
+//	System.out.println("BALANCE has been update");
+	
+}
+}

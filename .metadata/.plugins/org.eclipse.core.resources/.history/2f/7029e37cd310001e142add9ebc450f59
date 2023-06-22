@@ -1,0 +1,23 @@
+package com.tns.customer.service;
+
+import java.util.List;
+
+import com.tns.customer.entities.User;
+
+public interface CustomerService {
+	//save operation
+	User saveCustomer(User user);
+	
+	//Read  operation->all list
+	List<User> fetchCustomerList();
+	
+	//fetch by id
+	User fetchCustomerById();
+	
+	//Update
+	User updateCustomer(User user,int id);
+	
+	//delete
+	void deleteCustomerById(int id);
+
+}

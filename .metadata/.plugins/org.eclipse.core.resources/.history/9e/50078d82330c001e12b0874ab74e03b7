@@ -1,0 +1,9 @@
+package com.tns.task;
+
+public class Test {
+public static void main(String[] args) {
+	Vehicle v=new Bicycle();
+	v.numberOfWheels();
+	v.color();
+}
+}

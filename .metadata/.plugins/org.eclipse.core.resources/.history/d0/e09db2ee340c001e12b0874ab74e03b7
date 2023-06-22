@@ -1,0 +1,6 @@
+package com.tns.task;
+interface Vehicle {
+     void numberOfWheels();
+     void color();
+    
+}

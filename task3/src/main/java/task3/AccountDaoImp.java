@@ -1,0 +1,58 @@
+package task3;
+
+import java.util.Scanner;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+public class AccountDaoImp implements AccountDao{
+
+	@Override
+	public boolean depositAmount(int acc) {
+		boolean flag=false;
+		EntityManagerFactory factory=Persistence.createEntityManagerFactory("dev");
+		EntityManager manager=factory.createEntityManager();
+		Bank b=manager.find(Bank.class, acc);
+		manager.getTransaction().begin();
+		if(b!=null) {
+			Scanner sc=new Scanner(System.in);
+			System.out.println("enter deposite amount");
+			int da=sc.nextInt();
+			b.setBalance(b.getBalance()+da);
+			flag=true;
+		}
+		else {
+			System.out.println("Account does nor exist...");
+		}
+		manager.getTransaction().commit();
+		manager.close();
+		return flag;
+	}
+
+	@Override
+	public boolean withdrawlAmount(int acc) {
+       boolean flag=false;
+       EntityManagerFactory factory=Persistence.createEntityManagerFactory("dev");
+		EntityManager manager=factory.createEntityManager();		
+		Bank b=manager.find(Bank.class, acc);
+		manager.getTransaction().begin();
+		if(b!=null) {
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter withdrawl amount");
+			int wa=sc.nextInt();
+			if(wa <= b.getBalance()) {
+				b.setBalance(b.getBalance()-wa);
+				System.out.println("Widthdraw Sucessfull.....");
+				flag = true;
+			}
+			else {
+				System.out.println("Incifisent Balance....");
+			}
+		}
+		manager.getTransaction().commit();
+		manager.close();
+		return flag;
+	}
+
+}

@@ -1,0 +1,50 @@
+package task3;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Bank {
+	@Id
+	private int id;
+	private String name;
+	private long AccNumber;
+	private double balance;
+	
+	public Bank() {
+		
+	}
+	
+	public Bank(String name,long AccNumber,double balance) {
+		this.name=name;
+		this.AccNumber=AccNumber;
+		this.balance=balance;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public long getAccNumber() {
+		return AccNumber;
+	}
+	public void setAccNumber(long accNumber) {
+		AccNumber = accNumber;
+	}
+	public double getBalance() {
+		return balance;
+	}
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+	
+
+}
